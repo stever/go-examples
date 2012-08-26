@@ -6,17 +6,10 @@ package lua
 #include <lualib.h>
 #include <lauxlib.h>
 
-static int dofile(lua_State *L, const char *filename) {
-	return luaL_dofile(L, filename);
-}
-
-static void getglobal(lua_State *L, const char *name) {
-	return lua_getglobal(L, name);
-}
-
-static const char *tostring(lua_State *L, int index) {
-	return lua_tostring(L, index);
-}
+// The following functions are wrappers around macros that can't be called from the Lua code.
+static int dofile(lua_State *L, const char *filename) {	return luaL_dofile(L, filename); }
+static void getglobal(lua_State *L, const char *name) { return lua_getglobal(L, name); }
+static const char *tostring(lua_State *L, int index) { return lua_tostring(L, index); }
 
 #cgo windows,386 CFLAGS: -IC:/Lua/include
 #cgo windows,386 LDFLAGS: -LC:/Lua/lib
