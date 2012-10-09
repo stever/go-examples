@@ -11,10 +11,6 @@ static int dofile(lua_State *L, const char *filename) {	return luaL_dofile(L, fi
 static void getglobal(lua_State *L, const char *name) { return lua_getglobal(L, name); }
 static const char *tostring(lua_State *L, int index) { return lua_tostring(L, index); }
 
-#cgo windows,386 CFLAGS: -IC:/Lua/include
-#cgo windows,386 LDFLAGS: -LC:/Lua/lib
-#cgo windows,amd64 CFLAGS: -IC:/Lua_x86_64/include
-#cgo windows,amd64 LDFLAGS: -LC:/Lua_x86_64
 #cgo windows LDFLAGS: -llua51
 #cgo darwin LDFLAGS: -llua
 #cgo linux LDFLAGS: -llua
