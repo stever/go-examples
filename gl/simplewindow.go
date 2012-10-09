@@ -39,6 +39,7 @@ func main() {
 	glfw.SetWindowCloseCallback(onClose)
 	glfw.SetMouseButtonCallback(onMouseBtn)
 	glfw.SetMouseWheelCallback(onMouseWheel)
+	glfw.SetMousePosCallback(onMouseMove)
 	glfw.SetKeyCallback(onKey)
 	glfw.SetCharCallback(onChar)
 
@@ -74,6 +75,10 @@ func onMouseBtn(button, state int) {
 
 func onMouseWheel(delta int) {
 	fmt.Printf("mouse wheel: %d\n", delta)
+}
+
+func onMouseMove(x, y int) {
+	fmt.Printf("mouse pos: %d, %d\n", x, y)
 }
 
 func onKey(key, state int) {
