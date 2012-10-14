@@ -7,11 +7,12 @@ package main
 #include <lauxlib.h>
 
 // The following functions are wrappers around macros that can't be called from the Lua code.
+static void call(lua_State *L, int nargs, int nresults) { return lua_call(L, nargs, nresults); }
 static int dofile(lua_State *L, const char *filename) {	return luaL_dofile(L, filename); }
 static void getglobal(lua_State *L, const char *name) { return lua_getglobal(L, name); }
 static const char *tostring(lua_State *L, int index) { return lua_tostring(L, index); }
 
-#cgo windows LDFLAGS: -llua51
+#cgo windows LDFLAGS: -llua52
 #cgo darwin LDFLAGS: -llua
 #cgo linux LDFLAGS: -llua
 */
@@ -37,7 +38,7 @@ func main() {
 		var f *C.char = C.CString("foo")
 		defer C.free(unsafe.Pointer(f))
 		C.getglobal(L, f)
-		C.lua_call(L, 0, 0)
+		C.call(L, 0, 0)
 
 		fmt.Println("Called the 'foo' function in", C.GoString(filename))
 	} else {
