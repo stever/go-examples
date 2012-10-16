@@ -43,6 +43,7 @@ func main() {
 	// Copy output from the command to a buffer.
 	// This is implemented as a function as it would be useful to process the command output.
 	// If just streaming the output you could use "go io.Copy(&out, stdout)" instead.
+	// This function is based on io.Copy (see http://golang.org/src/pkg/io/io.go)
 	go func(src io.ReadCloser, dst *bytes.Buffer) {
 		var written int64
 		var ErrShortWrite = errors.New("short write")
