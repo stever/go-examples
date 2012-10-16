@@ -10,12 +10,14 @@ import (
 func main() {
 	fmt.Println("Started")
 
+	// Interrupt handler.
+	// NOTE: This doesn't currently work on Windows (2012-10-16 go1.0.3)
 	go func() {
 		sigchan := make(chan os.Signal, 10)
 		signal.Notify(sigchan, os.Interrupt)
 		<-sigchan
 		fmt.Println("\nCaught interrupt.")
-		// TODO: Last actions and wait for all operations to end.
+		// NOTE: Do last actions here and wait for all operations to end.
 		fmt.Println("Finished")
 		os.Exit(0)
 	}()
