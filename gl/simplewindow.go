@@ -5,7 +5,7 @@
 // This example shows how to set up a minimal GLFW application.
 package main
 
-import "github.com/stever/glfw"
+import "github.com/go-gl/glfw"
 import "fmt"
 import "os"
 

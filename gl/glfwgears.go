@@ -18,8 +18,8 @@ package main
 
 */
 
-import "github.com/stever/glfw"
-import "github.com/stever/gl"
+import "github.com/go-gl/glfw"
+import "github.com/go-gl/gl"
 import "math"
 import "os"
 import "fmt"
