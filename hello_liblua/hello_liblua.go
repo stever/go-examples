@@ -1,6 +1,6 @@
 package main
 
-import "../liblua"
+import "./liblua"
 import "fmt"
 
 func main() {

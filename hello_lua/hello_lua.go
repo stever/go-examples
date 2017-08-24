@@ -1,6 +1,8 @@
 package main
 
 /*
+#cgo pkg-config: lua51
+
 #include <stdlib.h>
 #include <lua.h>
 #include <lualib.h>
@@ -11,10 +13,6 @@ static void call(lua_State *L, int nargs, int nresults) { return lua_call(L, nar
 static int dofile(lua_State *L, const char *filename) {	return luaL_dofile(L, filename); }
 static void getglobal(lua_State *L, const char *name) { return lua_getglobal(L, name); }
 static const char *tostring(lua_State *L, int index) { return lua_tostring(L, index); }
-
-#cgo windows LDFLAGS: -llua52
-#cgo darwin LDFLAGS: -llua
-#cgo linux LDFLAGS: -llua
 */
 import "C"
 import "unsafe"
