@@ -11,9 +11,9 @@ import (
 )
 
 func main() {
-	os.Remove("./foo.db")
+	os.Remove("./foo.sqlite3")
 
-	db, err := sql.Open("sqlite3", "./foo.db")
+	db, err := sql.Open("sqlite3", "./foo.sqlite3")
 	if err != nil {
 		fmt.Println(err)
 		return
